@@ -1,0 +1,19 @@
+{
+  "entries": 575,
+  "pairs": 287,
+  "C_entries": 192,
+  "C_pairs": 96,
+  "C_flagged_pairs": 0,
+  "C_screened_pairs": 96,
+  "combined_screened_pairs": 257,
+  "flagged_C": [],
+  "mean_shifts_C": {
+    "dE_HOMO": -0.16770833333333338,
+    "dE_LUMO": -0.05291666666666664,
+    "dE_g": 0.11489583333333332
+  },
+  "range_Eg_C": {
+    "iso_min": 0.05,
+    "iso_max": 1.85
+  }
+}

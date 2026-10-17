@@ -1,0 +1,15 @@
+{
+  "title": "Data and code for: Solvent-induced frontier orbital shifts in chalcogen-containing donor–acceptor–donor oligomers and their prediction from gas-phase calculations",
+  "upload_type": "dataset",
+  "description": "<p>B3LYP/LANL2DZ isolated and acetonitrile PCM frontier orbital energies (HOMO, LUMO, gap) of 48 chalcogen-containing donor–acceptor–donor systems from monomer to hexamer (575 entries, 287 isolated/PCM pairs), TD-B3LYP/LANL2DZ band data, audit flags, cross-validated model predictions, and the Python code that reproduces all tables and figures of the associated article. Values were transcribed from the MSc theses of Ö. Özkılınç and E. Uyanık (Ankara University, 2021) and are kept as reported.</p>",
+  "creators": [
+    {"name": "Özkılınç, Özge", "affiliation": "Ankara University"},
+    {"name": "Şen Uyanık, Emire", "affiliation": "Ankara University"},
+    {"name": "Doğan, Esra Nur", "affiliation": "Ankara University"},
+    {"name": "Kayi, Hakan", "affiliation": "Ankara University"}
+  ],
+  "keywords": ["DFT", "polarizable continuum model", "frontier orbital energies", "chalcogen", "donor–acceptor–donor", "conjugated oligomers"],
+  "license": "cc-by-4.0",
+  "grants": [],
+  "notes": "Supported by TÜBİTAK, grant no. 117Z354."
+}
