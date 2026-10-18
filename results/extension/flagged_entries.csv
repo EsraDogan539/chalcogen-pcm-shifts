@@ -8,7 +8,6 @@ A,SSeS,6,isolated,-5.13,-3.63,1.5,,,,,,,,,False,False,True,True
 B,STeS,2,isolated,-4.51,-2.85,1.96,,,,,,,,,True,False,False,True
 A,OSO,6,PCM,-5.14,-3.54,1.61,,,,,,,,,False,False,True,True
 B,OSeO,6,PCM,-4.23,-2.81,1.42,,,,,,,,,False,True,True,True
-A,SSS,6,PCM,-5.2,3.63,1.55,,,,,,,,,True,False,True,True
 A,SeTeSe,6,PCM,-4.79,-3.48,1.27,,,,,,,,,True,False,False,True
 B,TeOTe,4,PCM,-4.44,-3.17,1.27,,,,,,,,,False,True,True,True
 B,TeSeTe,4,PCM,-4.14,-3.12,1.03,,,,,,,,,False,True,True,True

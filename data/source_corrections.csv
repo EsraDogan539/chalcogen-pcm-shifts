@@ -1,0 +1,2 @@
+system,XYX,n,environment,quantity,reported_value,corrected_value,reason
+A,SSS,6,PCM,E_LUMO,3.63,-3.63,"Typographical sign error in the source table (thesis Table 4.3), confirmed by the authors of the original calculations"

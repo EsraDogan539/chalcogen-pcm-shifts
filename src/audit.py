@@ -17,6 +17,16 @@ import pandas as pd
 def load(data_dir):
     d = pd.read_csv(f'{data_dir}/orbital_energies_thesis_tables_4.2_4.3.csv')
     prov = pd.read_csv(f'{data_dir}/mixed_provenance_series.csv')
+    # documented corrections of typographical errors confirmed by the authors of the calculations
+    try:
+        corr = pd.read_csv(f'{data_dir}/source_corrections.csv')
+    except FileNotFoundError:
+        corr = pd.DataFrame()
+    for _, c in corr.iterrows():
+        m = (d.system == c.system) & (d.XYX == c.XYX) & (d.n == c.n) & (d.environment == c.environment)
+        if m.any():
+            assert np.isclose(d.loc[m, c.quantity].iloc[0], c.reported_value)
+            d.loc[m, c.quantity] = c.corrected_value
     return d, prov
 
 

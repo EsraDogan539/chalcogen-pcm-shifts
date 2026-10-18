@@ -33,17 +33,14 @@ def fig2(p, out):
             m = g[g.S3].groupby('n')[q].mean(); a.plot(m.index, m.values, color=COL[fam], lw=2.2, marker='o', ms=4, zorder=5)
             if q == 'dE_LUMO':
                 a.set_ylim(-0.62, 0.75)
-                if fam == 'A':
-                    a.annotate('A-SSS n = 6: ΔE = +7.26\n(missing sign, off scale)', xy=(5.92, 0.74), xytext=(1.1, 0.36), fontsize=6,
-                               color=RED, arrowprops=dict(arrowstyle='->', color=RED, lw=0.6))
             a.axhline(0, color='#bbb', lw=0.5, zorder=0); a.set_xlim(0.7, 7.2); a.set_xticks(range(1, 7))
             if j == 0: a.set_ylabel(lab)
-            if i == 0: a.set_title(f'{fam} system', loc='left', fontsize=9)
-            if i == 1: a.set_xlabel('Number of repeat units, n')
+            if i == 0: a.set_title(f'System $\\mathit{{{fam}}}$', loc='left', fontsize=9)
+            if i == 1: a.set_xlabel('Number of repeat units, $n$')
     h = [Line2D([], [], color=GRAY, lw=.8, label='individual systems'),
-         Line2D([], [], color=CA, lw=2, marker='o', ms=4, label='A mean (screened)'),
-         Line2D([], [], color=CB, lw=2, marker='o', ms=4, label='B mean (screened)'),
-         Line2D([], [], color=CC, lw=2, marker='o', ms=4, label='C mean'),
+         Line2D([], [], color=CA, lw=2, marker='o', ms=4, label=r'$\mathit{A}$ mean (screened)'),
+         Line2D([], [], color=CB, lw=2, marker='o', ms=4, label=r'$\mathit{B}$ mean (screened)'),
+         Line2D([], [], color=CC, lw=2, marker='o', ms=4, label=r'$\mathit{C}$ mean'),
          Line2D([], [], color=INK, ls='--', lw=1.1, label='mixed-provenance series'),
          Line2D([], [], color=RED, marker='x', ls='', label='row flagged by audit')]
     fig.legend(handles=h, loc='lower center', ncol=3, frameon=False, fontsize=6.8, bbox_to_anchor=(0.5, -0.01))
@@ -65,7 +62,7 @@ def fig3(p, out):
                            color='white' if (not np.isnan(v) and abs(v) > 0.35) else INK)
             a.set_xticks(range(4), ORDER); a.set_yticks(range(4), ORDER if j == 0 else [''] * 4)
             a.set_xlabel('Acceptor chalcogen (Y)', fontsize=7.5); a.set_ylabel('Donor chalcogen (X)' if j == 0 else '', fontsize=7.5)
-            a.set_title(f'{fam} system, mean {lab}', fontsize=8, loc='left')
+            a.set_title(f'System $\\mathit{{{fam}}}$, mean {lab}', fontsize=8, loc='left')
             for sp in a.spines.values(): sp.set_visible(False)
     cb = fig.colorbar(im, ax=ax, shrink=0.6, pad=0.02); cb.set_label('PCM − isolated (eV)')
     fig.savefig(f'{out}/Fig3.png', bbox_inches='tight', dpi=300); fig.savefig(f'{out}/Fig3.tiff', bbox_inches='tight', dpi=600); plt.close(fig)

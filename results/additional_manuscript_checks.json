@@ -2,53 +2,53 @@
   "HOMO": {
     "mean_all": 0.06650209495281476,
     "median_all": 0.013199184470953362,
-    "mean_screened": 0.015921565796462665,
-    "mean_flagged_or_mixed": 0.337950934758571,
+    "mean_screened": 0.016040377264817735,
+    "mean_flagged_or_mixed": 0.34839169031334977,
     "within_0_05": 157
   },
   "LUMO": {
-    "mean_all": 0.09262946591909169,
-    "median_all": 0.01937194345915394,
-    "mean_screened": 0.01792415420369749,
-    "mean_flagged_or_mixed": 0.4935479721250406,
-    "within_0_05": 167
+    "mean_all": 0.05456094198212368,
+    "median_all": 0.01886681274389579,
+    "mean_screened": 0.017720535610007578,
+    "mean_flagged_or_mixed": 0.26035907412980674,
+    "within_0_05": 168
   },
   "Eg": {
     "mean_all": 0.03792291231526464,
     "median_all": 0.020221048068224556,
-    "mean_screened": 0.01992906822966106,
-    "mean_flagged_or_mixed": 0.13448987557467051,
+    "mean_screened": 0.019808718275385474,
+    "mean_flagged_or_mixed": 0.13911254798631373,
     "within_0_05": 156
   },
   "screened_counts": {
-    "A": 69,
+    "A": 70,
     "B": 92
   },
-  "screened_shift_HOMO_iso_r": -0.8290017840543729,
+  "screened_shift_HOMO_iso_r": -0.8296374403918872,
   "optical_greater_than_gap_1_eV": 24,
   "strong_optical_N": 24,
   "strong_optical_absolute_r": -0.05953061334443373,
   "M2_VIF": {
-    "E_HOMO_iso": 5.721744516726432,
-    "E_LUMO_iso": 4.625200379771094,
-    "inv_n": 4.009312564263205,
-    "is_B": 4.439817021998945
+    "E_HOMO_iso": 5.706745698139911,
+    "E_LUMO_iso": 4.684082443684324,
+    "inv_n": 3.996601660930933,
+    "is_B": 4.474491165157621
   },
   "M2_midpoint_form": {
-    "intercept": -2.247640499853455,
-    "midpoint": -0.5331861404287024,
-    "gap": -0.08046370272507175,
-    "inv_n": 0.015486502369732657,
-    "framework_B": 0.035759638244503164
+    "intercept": -2.2421826644385887,
+    "midpoint": -0.5318207098959791,
+    "gap": -0.081020219946069,
+    "inv_n": 0.0173612158095068,
+    "framework_B": 0.03549181819790849
   },
   "gap_difference_prediction_MAE": {
     "S1": {
-      "from_difference": 0.019185149110906026,
-      "direct": 0.01992906822966106
+      "from_difference": 0.019019039168295112,
+      "direct": 0.019808718275385474
     },
     "S3": {
-      "from_difference": 0.01754120585671427,
-      "direct": 0.01754627816176752
+      "from_difference": 0.017516460116752057,
+      "direct": 0.01747457588500084
     }
   }
 }

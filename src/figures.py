@@ -27,17 +27,13 @@ def fig2(p, out):
                 if so and i == 0:
                     a.annotate(f'{fam}-{x}', (s.n.iloc[-1], s[q].iloc[-1]), xytext=(3, 0), textcoords='offset points', fontsize=6.5, va='center')
             m = g[g.S3].groupby('n')[q].mean(); a.plot(m.index, m.values, color=col, lw=2.2, marker='o', ms=4, zorder=5)
-            if fam == 'A' and q == 'dE_LUMO':
-                a.set_ylim(-0.2, 0.75)
-                a.annotate('A-SSS n = 6: ΔE = +7.26\n(possible sign error, off scale)', xy=(5.92, 0.74), xytext=(1.1, 0.66), fontsize=6.3,
-                           color=RED, arrowprops=dict(arrowstyle='->', color=RED, lw=0.6))
             a.axhline(0, color='#bbb', lw=0.5, zorder=0); a.set_xlim(0.7, 7.0); a.set_xticks(range(1, 7))
             if j == 0: a.set_ylabel(lab)
-            if i == 0: a.set_title(f'{fam} system', loc='left', fontsize=9)
-            if i == 1: a.set_xlabel('Number of repeat units, n')
+            if i == 0: a.set_title(f'System $\\mathit{{{fam}}}$', loc='left', fontsize=9)
+            if i == 1: a.set_xlabel('Number of repeat units, $n$')
     h = [Line2D([], [], color=GRAY, lw=.8, label='individual systems'),
-         Line2D([], [], color=CA, lw=2, marker='o', ms=4, label='A mean (screened)'),
-         Line2D([], [], color=CB, lw=2, marker='o', ms=4, label='B mean (screened)'),
+         Line2D([], [], color=CA, lw=2, marker='o', ms=4, label=r'$\mathit{A}$ mean (screened)'),
+         Line2D([], [], color=CB, lw=2, marker='o', ms=4, label=r'$\mathit{B}$ mean (screened)'),
          Line2D([], [], color=INK, ls='--', lw=1.2, label='mixed-provenance series'),
          Line2D([], [], color=RED, marker='x', ls='', label='row flagged by audit')]
     fig.legend(handles=h, loc='lower center', ncol=3, frameon=False, fontsize=6.8, bbox_to_anchor=(0.5, -0.01))
@@ -59,7 +55,7 @@ def fig3(p, out):
                            color='white' if (not np.isnan(v) and abs(v) > 0.35) else INK)
             a.set_xticks(range(4), ORDER); a.set_yticks(range(4), ORDER)
             a.set_xlabel('Acceptor chalcogen (Y)'); a.set_ylabel('Donor chalcogen (X)' if j == 0 else '')
-            a.set_title(f'{fam} system, mean {lab}', fontsize=8.5, loc='left')
+            a.set_title(f'System $\\mathit{{{fam}}}$, mean {lab}', fontsize=8.5, loc='left')
             for sp in a.spines.values(): sp.set_visible(False)
     cb = fig.colorbar(im, ax=ax, shrink=0.6, pad=0.03); cb.set_label('PCM − isolated (eV)')
     fig.savefig(f'{out}/Fig3.png', bbox_inches='tight'); fig.savefig(f'{out}/Fig3.tiff', dpi=600, bbox_inches='tight'); plt.close(fig)
@@ -73,7 +69,7 @@ def fig4(p, preds, out):
         a.plot([lo, hi], [lo, hi], color='#999', lw=0.7, ls='--', zorder=0)
         for fam, col, mk in [('A', CA, 'o'), ('B', CB, 's')]:
             sel = ok & (p.system == fam).values
-            a.scatter(y[sel], pr[sel], s=9, color=col, marker=mk, lw=0.3, edgecolor='white', label=f'{fam} system')
+            a.scatter(y[sel], pr[sel], s=9, color=col, marker=mk, lw=0.3, edgecolor='white', label=f'System $\\mathit{{{fam}}}$')
         bad = ~ok & (y > lo - 0.5) & (y < hi + 0.5)
         a.scatter(y[bad], pr[bad], s=14, facecolor='none', edgecolor=INK, lw=0.7, marker='D', label='flagged / mixed provenance')
         a.set_xlim(lo, hi); a.set_ylim(lo, hi); a.set_aspect('equal')
@@ -98,7 +94,7 @@ def fig6(o, out):
     fig, ax = plt.subplots(1, 2, figsize=(6.3, 2.7))
     for fam, col, mk in [('A', CA, 'o'), ('B', CB, 's')]:
         g = o[o.system == fam]
-        ax[0].scatter(g.E_g_iso, g.E_iso_eV, s=10 + 60 * g.f_iso, color=col, marker=mk, lw=0.4, edgecolor='white', label=f'{fam} system')
+        ax[0].scatter(g.E_g_iso, g.E_iso_eV, s=10 + 60 * g.f_iso, color=col, marker=mk, lw=0.4, edgecolor='white', label=f'System $\\mathit{{{fam}}}$')
     ax[0].plot([1.8, 2.7], [1.8, 2.7], ls='--', color='#999', lw=0.7)
     ax[0].set_xlabel(r'Isolated monomer $E_g$ (eV)'); ax[0].set_ylabel(r'Isolated monomer $E_{max}$ (eV)')
     ax[0].legend(fontsize=6.5, frameon=False, loc='lower left'); ax[0].set_title('(a) marker area = 10 + 60f', fontsize=7.5, loc='left')
@@ -129,7 +125,7 @@ def fig_learning_curve(sm, out, setting='S3'):
             a.fill_between(g.k, g.p10, g.p90, color=col, alpha=0.18, lw=0)
             a.plot(g.k, g['median'], color=col, marker=mk, ms=3, lw=1.4, label=m)
         a.set_yscale('log'); a.set_ylim(0.008, 0.5)
-        a.set_xlabel('Combinations with PCM data, k'); a.set_title('(' + 'abc'[k_] + ') ' + lab, loc='left', fontsize=8)
+        a.set_xlabel('Combinations with PCM data, $k$'); a.set_title('(' + 'abc'[k_] + ') ' + lab, loc='left', fontsize=8)
         a.set_xticks([2, 4, 6, 8, 10, 12, 14])
         a.axhline(0.05, color='#bbb', lw=0.5, ls='--')
     ax[0].set_ylabel('MAE on withheld combinations (eV)')
