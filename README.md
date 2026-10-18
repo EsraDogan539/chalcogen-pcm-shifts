@@ -1,5 +1,7 @@
 # Solvent-induced frontier orbital shifts in chalcogen-containing D–A–D oligomers
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23448311.svg)](https://doi.org/10.5281/zenodo.23448311)
+
 Data and analysis code for the article
 *"Solvent-induced frontier orbital shifts in chalcogen-containing donor–acceptor–donor oligomers and their prediction from gas-phase calculations"*
 by Özge Özkılınç, Emire Şen Uyanık, Esra Nur Doğan and Hakan Kayi (Ankara University).

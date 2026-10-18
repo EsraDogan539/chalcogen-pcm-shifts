@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use these data or this code, please cite the dataset and the associated article."
 title: "Data and code for: Solvent-induced frontier orbital shifts in chalcogen-containing donor–acceptor–donor oligomers and their prediction from gas-phase calculations"
 version: "1.0.0"
+doi: 10.5281/zenodo.23448311
 date-released: "2026-10-17"
 license: MIT
 repository-code: "https://github.com/EsraDogan539/chalcogen-pcm-shifts"
