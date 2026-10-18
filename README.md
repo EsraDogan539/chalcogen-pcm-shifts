@@ -73,7 +73,7 @@ Tested with Python 3.12, NumPy 2.3, pandas 2.2, scikit-learn 1.8 and Matplotlib 
 
 * **S1** – all pairs, Huber loss (ε = 1.35); no manual exclusion
 * **S2** – A/B pairs passing rules R1–R3, ordinary least squares
-* **S3** – S2 without mixed-provenance series (161 A/B pairs; 257 pairs including C), ordinary least squares
+* **S3** – S2 without mixed-provenance series (162 A/B pairs; 258 pairs including C), ordinary least squares
 * **Leave-one-combination-out CV** – all chain lengths of one XYX combination withheld (in A and B, or in A, B and C)
 * **Learning curve** – k random training combinations; a draw is accepted only for a full-column-rank design
   (M3: every chalcogen indicator must vary). Accepted counts in `learning_curve_summary.csv`, full record in
