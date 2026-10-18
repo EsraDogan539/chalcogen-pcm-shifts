@@ -45,6 +45,7 @@ src/
   sensitivity.py, report_checks.py   optical threshold sensitivity and additional checks
 run_all.py            A/B analysis: Tables 1–4, Fig. 1, 4, 5, 7
 run_extension.py      C transfer, pooled and calibration tests: Table 5, Fig. 2, 3, 6; converts TIFFs to RGB/LZW
+make_supplementary.py builds supplementary/Supplementary_Data_S1.xlsx
 ```
 
 All values are kept as reported in the source theses; entries flagged by the audit are not corrected. The only change is a
@@ -58,6 +59,7 @@ LC-BLYP results, B3LYP/6-31G(d) values and extrapolated polymer gaps are not use
 pip install -r requirements.txt
 python run_all.py
 python run_extension.py
+python make_supplementary.py
 ```
 
 `run_all.py` takes a few minutes (mostly the learning curve). Results are written to `results/`
