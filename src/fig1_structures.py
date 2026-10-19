@@ -61,19 +61,23 @@ def build(m, bridged, quinox=False):
         m.bond(Q[1], Q[2]); m.bond(Q[2], Q[3], True, cQ); m.bond(Q[3], Q[4]); m.bond(Q[4], Q[5], True, cQ); m.bond(Q[5], Q[0])
     for side, vi in [(1, 0), (-1, 3)]:
         a = B[vi]
-        if quinox:   # donors drawn horizontally between the two fused rings
-            ang = np.radians(0) if side == 1 else np.radians(180)
-            ang2 = np.radians(-72) if side == 1 else np.radians(252)
-        else:
+        if quinox:   # donors point upwards, away from the pyrazine ring
+            ang = np.radians(30) if side == 1 else np.radians(150)
+            ang2 = np.radians(-48) if side == 1 else np.radians(228)
+        elif bridged:
             ang = np.radians(-30) if side == 1 else np.radians(210)
             ang2 = np.radians(-108) if side == 1 else np.radians(288)
+        else:        # system A: horizontal inter-ring bond, X drawn up (flipped below)
+            ang = np.radians(0) if side == 1 else np.radians(180)
+            ang2 = np.radians(-72) if side == 1 else np.radians(252)
         c2 = a + np.array([np.cos(ang), np.sin(ang)])
         m.bond(a, c2)
         xpos = c2 + np.array([np.cos(ang2), np.sin(ang2)])
-        # flip the donor about the inter-ring bond so that X points up (syn to the acceptor N),
+        # system A: flip the donor about the inter-ring bond so that X points up (syn to the acceptor N),
         # leaving the alpha carbon next to X free for chain extension
-        u = (c2 - a) / np.linalg.norm(c2 - a); v = xpos - a
-        xpos = a + 2 * np.dot(v, u) * u - v
+        if not bridged and not quinox:
+            u = (c2 - a) / np.linalg.norm(c2 - a); v = xpos - a
+            xpos = a + 2 * np.dot(v, u) * u - v
         R, cR = ring_on_edge(c2, xpos, 5, a)       # C2, X, C5, C4, C3
         m.lab(R[1], 'X')
         m.bond(R[0], R[1]); m.bond(R[1], R[2]); m.bond(R[2], R[3], True, cR); m.bond(R[3], R[4]); m.bond(R[4], R[0], True, cR)
