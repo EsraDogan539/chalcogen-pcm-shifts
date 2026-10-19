@@ -69,7 +69,7 @@ def build(m, bridged, quinox=False):
             ang2 = np.radians(-108) if side == 1 else np.radians(288)
         else:        # system A: horizontal inter-ring bond, X drawn up (flipped below)
             ang = np.radians(0) if side == 1 else np.radians(180)
-            ang2 = np.radians(-72) if side == 1 else np.radians(252)
+            ang2 = np.radians(-36) if side == 1 else np.radians(216)
         c2 = a + np.array([np.cos(ang), np.sin(ang)])
         m.bond(a, c2)
         xpos = c2 + np.array([np.cos(ang2), np.sin(ang2)])
